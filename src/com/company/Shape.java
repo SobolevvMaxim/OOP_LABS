@@ -10,10 +10,9 @@ public abstract class Shape {
         this.name = name;
     }
 
-    public void printIntersect(Shape shape1) {
-        boolean isIntersected = r.nextBoolean();
-        if(isIntersected)
-            System.out.println(name + " is intersecting " + shape1.name);
-        else System.out.println(name + " is not intersecting " + shape1.name);
+    public abstract void printIntersect(Shape shape1);
+
+    protected static boolean getBoolean() {
+        return r.nextBoolean();
     }
 }
