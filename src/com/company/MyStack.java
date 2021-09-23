@@ -12,7 +12,7 @@ public class MyStack<T> {
     }
 
     public void push(T element) {
-        if(isFull()) {
+        if (isFull()) {
             System.out.println("Stack overflow!");
             return;
         }
@@ -20,7 +20,7 @@ public class MyStack<T> {
     }
 
     public T pop() {
-        if(isEmpty()){
+        if (isEmpty()) {
             System.out.println("Underflow!");
             System.exit(1);
         }
@@ -35,6 +35,7 @@ public class MyStack<T> {
     public boolean isEmpty() {
         return top == -1;
     }
+
     public int size() {
         return top + 1;
     }
