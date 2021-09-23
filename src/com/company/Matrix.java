@@ -1,41 +1,44 @@
 package com.company;
 
-import java.util.Arrays;
-
 public class Matrix {
-    private Float[][] matrix;
+    private float[][] matrix;
     private int columns;
-    private int stolbs;
+    private int rows;
 
     public Matrix() {
     }
 
-    public Matrix(Float[][] matrix) {
+    public Matrix(float[][] matrix) {
         this.matrix = matrix;
-        columns = matrix.length;
-        stolbs = matrix[0].length;
+        columns = matrix[0].length;
+        rows = matrix.length;
     }
 
-    public Matrix(int columns, int stolbs) {
+    public Matrix(int columns, int rows) {
         this.columns = columns;
-        this.stolbs = stolbs;
-        matrix = new Float[columns][stolbs];
+        this.rows = rows;
+        matrix = new float[rows][columns];
     }
 
-    public float getElement(int colIndex, int stolbIndex) {
-        return matrix[colIndex][stolbIndex];
+    public float getElement(int colIndex, int rowIndex) {
+        return matrix[rowIndex][colIndex];
     }
 
-    public void setElement(int colIndex, int stolbIndex, float element) {
-        matrix[colIndex][stolbIndex] = element;
+    public void setElement(int colIndex, int rowIndex, float element) {
+        matrix[rowIndex][colIndex] = element;
     }
 
-    public Float[][] getMatrix() {
+    public float[][] getMatrix() {
         return matrix;
     }
 
     public void printMatrix() {
-        System.out.println(Arrays.deepToString(matrix));
+        for (float[] floats : matrix) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(floats[j] + "   ");
+            }
+            System.out.println();
+        }
     }
 
     public static float[][] sumTwoMatrix(Matrix matrix1, Matrix matrix2) {
@@ -43,7 +46,7 @@ public class Matrix {
 
         for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[i].length; j++) {
-                result[i][j] = matrix1.getElement(i, j) + matrix2.getElement(i, j);
+                result[i][j] = matrix1.getElement(j, i) + matrix2.getElement(j, i);
             }
         }
 
@@ -52,8 +55,8 @@ public class Matrix {
 
     private static float[][] getNewMatrixSize(Matrix matrix1, Matrix matrix2) {
         int newColumns = Math.min(matrix1.columns, matrix2.columns);
-        int newStolbs = Math.min(matrix1.stolbs, matrix2.stolbs);
+        int newRows = Math.min(matrix1.rows, matrix2.rows);
 
-        return new float[newColumns][newStolbs];
+        return new float[newRows][newColumns];
     }
 }
