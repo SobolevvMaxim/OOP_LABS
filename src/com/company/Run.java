@@ -6,5 +6,6 @@ public class Run {
         Circle circle = new Circle("Circle");
         Square square = new Square("Square");
         circle.printIntersect(square);
+        square.printIntersect(circle);
     }
 }
