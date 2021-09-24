@@ -1,9 +1,7 @@
 package com.company
 
 class CustomArray(private val array: Array<Int>) {
-
     operator fun plus(plusArray: CustomArray) = arrayOf(*array, *plusArray.array)
-
 }
 
 fun main() {
