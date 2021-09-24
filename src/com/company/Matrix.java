@@ -57,6 +57,18 @@ public class Matrix {
         return result;
     }
 
+    public static float[][] subtractingTwoMatrix(Matrix matrix1, Matrix matrix2) {
+        float[][] result = getNewMatrixSize(matrix1, matrix2);
+
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                result[i][j] = matrix1.getElement(j, i) - matrix2.getElement(j, i);
+            }
+        }
+
+        return result;
+    }
+
     private static float[][] getNewMatrixSize(Matrix matrix1, Matrix matrix2) {
         int newColumns = Math.min(matrix1.columns, matrix2.columns);
         int newRows = Math.min(matrix1.rows, matrix2.rows);
