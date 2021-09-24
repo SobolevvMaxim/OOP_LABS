@@ -32,6 +32,10 @@ public class Matrix {
         return matrix;
     }
 
+    public void setMatrix(float[][] matrix) {
+        this.matrix = matrix;
+    }
+
     public void printMatrix() {
         for (float[] floats : matrix) {
             for (int j = 0; j < columns; j++) {
